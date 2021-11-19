@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2021 Roberto Leinardi.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="i18n_app_name">Template</string>
+    <string name="i18n_back">Back</string>
+    <string name="i18n_bar_screen_title">Bar screen</string>
+    <string name="i18n_bar_text_received">Text = %1$s</string>
+    <string name="i18n_foo_change_me">Change me</string>
+    <string name="i18n_foo_screen_title">Foo screen</string>
+    <string name="i18n_foo_send_text_to_bar">Send text to Bar screen</string>
+    <string name="i18n_foo_show_snackbar">Show Snackbar</string>
+    <string name="i18n_foo_snackbar_text">Lorem ipsum dolor sit amet…</string>
+    <string name="i18n_foo_text_field_hint">Type something here plz…</string>
+    <string name="i18n_navigate_up">Go up</string>
+    <string name="i18n_rocketLaunch_title">Launches Screen</string>
+    <string name="i18n_rocketLaunchDetail_title">Launch Detail Screen</string>
+
+    <string name="i18n_rocketLaunch_site">Site </string>
+    <string name="i18n_rocketLaunch_rocket">Rocket</string>
+    <string name="i18n_rocketLaunch_rocket_type">Rocket-Type</string>
+    <string name="i18n_rocketLaunch_book_now">Book Now</string>
+
+    <string name="i18n_rocketLaunch_booked">Booked</string>
+
+    <string name="i18n_network_issue">Something went wrong. Please check your network connection.</string>
+</resources>
