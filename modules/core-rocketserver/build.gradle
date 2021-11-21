@@ -37,6 +37,7 @@ dependencies {
     implementation libs.apollo
     implementation libs.apollo.coroutines
     api("com.apollographql.apollo:apollo-runtime:2.5.10")
+    implementation "com.apollographql.apollo:apollo-normalized-cache-sqlite:2.5.10"
 
     implementation libs.hilt.android
     kapt libs.hilt.compiler

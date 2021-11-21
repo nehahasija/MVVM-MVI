@@ -1,5 +1,6 @@
 package com.leinardi.template.rocketserver.repository
 
+import android.content.Context
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.coroutines.await
 import com.leinardi.template.rocketserver.LaunchDetailsQuery
@@ -14,6 +15,10 @@ class LaunchRepositoryImpl @Inject constructor(private val webService : RocketSe
 
     override suspend fun queryLaunchDetails(launchId: String): Response<LaunchDetailsQuery.Data> {
         return webService.getApolloClient().query(LaunchDetailsQuery(launchId)).await()
+    }
+
+    override suspend fun getCacheKeyResolver(context: Context) {
+        webService.getCacheKeyResolver(context)
     }
 
 }

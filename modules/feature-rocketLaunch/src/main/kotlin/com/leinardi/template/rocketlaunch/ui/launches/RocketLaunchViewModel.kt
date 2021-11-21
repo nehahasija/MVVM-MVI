@@ -57,6 +57,7 @@ class RocketLaunchViewModel @Inject constructor(
     }
 
     init {
+        getApolloCacheResolver()
         queryLaunchesList()
     }
 
@@ -64,6 +65,10 @@ class RocketLaunchViewModel @Inject constructor(
         viewModelScope.launch {
             templateNavigator.navigate(RocketLaunchDetailDestination.createRoute(id))
         }
+    }
+
+    fun getApolloCacheResolver() = viewModelScope.launch {
+        repository.getCacheKeyResolver(app)
     }
 
     fun queryLaunchesList() = viewModelScope.launch {
@@ -76,7 +81,7 @@ class RocketLaunchViewModel @Inject constructor(
             }
 
         } catch (e: ApolloException) {
-            Log.d("ApolloException", "Failure", e)
+            Log.d("ApolloException", e.printStackTrace().toString())
             updateState { viewState.value.copy(isLoading = false) }
             sendEffect { Effect.ShowSnackbar(app.getString(R.string.i18n_network_issue)) }
 

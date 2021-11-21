@@ -36,5 +36,5 @@
 
     <string name="i18n_rocketLaunch_booked">Booked</string>
 
-    <string name="i18n_network_issue">Something went wrong. Please check your network connection.</string>
+    <string name="i18n_network_issue">No cached data found. Please check your network connection.</string>
 </resources>
