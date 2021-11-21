@@ -1,8 +1,5 @@
-WIP
-
-adb shell am start -d "template://bar/FooText" -a android.intent.action.VIEW
-adb shell am start -d "template://debug" -a android.intent.action.VIEW
-
-Added rocketLaunch feature module.
-User can see list of all rocket launch sites 
+RocketLaunch feature module added.
+User can see list of all rocket launch sites with thumbnails .
 Tapping on list item shows detail screen with detailed information and image.
+Used SqlNormalizedCacheCache Apollo for offline support and data caching .
+
