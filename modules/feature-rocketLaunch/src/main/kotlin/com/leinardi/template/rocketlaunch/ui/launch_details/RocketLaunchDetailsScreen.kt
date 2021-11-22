@@ -110,11 +110,11 @@ private fun loadUI(param: LaunchDetailsQuery.Launch) {
                         param,
                         this@BoxWithConstraints.maxHeight
                     )
-                    Content(param, this@BoxWithConstraints.maxHeight)
+                    Content(param)
 
-                    Column( ) {
+                    Column() {
                         BookNowFab(
-                            extended = scrollState.value == 0,param.isBooked
+                            extended = scrollState.value == 0, param.isBooked
                         )
                     }
 
@@ -174,7 +174,7 @@ private fun Header(
 
 @Composable
 
-private fun Content(launch: LaunchDetailsQuery.Launch, containerHeight: Dp) {
+private fun Content(launch: LaunchDetailsQuery.Launch) {
     Column {
         Spacer(modifier = Modifier.height(20.dp))
 
@@ -241,7 +241,7 @@ fun Property(label: String, value: String, isLink: Boolean = false) {
 }
 
 @Composable
-fun BookNowFab(extended: Boolean, isBooked:Boolean,modifier: Modifier = Modifier) {
+fun BookNowFab(extended: Boolean, isBooked: Boolean, modifier: Modifier = Modifier) {
     FloatingActionButton(
         onClick = { /* TODO */ },
         modifier = modifier
@@ -253,17 +253,15 @@ fun BookNowFab(extended: Boolean, isBooked:Boolean,modifier: Modifier = Modifier
         contentColor = Color.White
     ) {
         if (isBooked)
-        Text(text = stringResource(R.string.i18n_rocketLaunch_booked),
-        textAlign = TextAlign.Center)
+            Text(
+                text = stringResource(R.string.i18n_rocketLaunch_booked),
+                textAlign = TextAlign.Center
+            )
         else
             Text(text = stringResource(R.string.i18n_rocketLaunch_book_now))
 
     }
 }
 
-@Preview
-@Composable
-fun RocketLaunchDetailsScreenPreview() {
-    RocketLaunchDetailScreen()
-}
+
 

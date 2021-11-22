@@ -77,14 +77,14 @@ class RocketLaunchDetailViewModel @Inject constructor(
         updateState { viewState.value.copy(isLoading = true) }
         try {
             val response = repository.queryLaunchDetails(launchId = launchId)
-            clickedLaunchItem = response?.data?.launch!!
+            clickedLaunchItem = response.data?.launch!!
             updateState {
                 viewState.value.copy(clickedLaunchItem, isLoading = false)
             }
 
 
         } catch (e: ApolloException) {
-            Log.d("ApolloException", "Failure", e)
+            Log.d("ApolloException", e.printStackTrace().toString())
             updateState { viewState.value.copy(isLoading = false) }
             sendEffect { Effect.ShowSnackbar(app.getString(R.string.i18n_network_issue)) }
 
