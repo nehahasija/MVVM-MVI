@@ -12,6 +12,5 @@ interface LaunchRepository {
 
     suspend fun queryLaunchDetails(launchId:String) : Response<LaunchDetailsQuery.Data>
 
-    suspend fun getCacheKeyResolver(context: Context)
 
 }

@@ -10,15 +10,12 @@ import javax.inject.Inject
 
 class LaunchRepositoryImpl @Inject constructor(private val webService : RocketServerApi) : LaunchRepository {
     override suspend fun queryLaunchesList(): Response<LaunchListQuery.Data> {
-        return webService.getApolloClient().query(LaunchListQuery()).await()
+        return webService.getApolloclient().query(LaunchListQuery()).await()
     }
 
     override suspend fun queryLaunchDetails(launchId: String): Response<LaunchDetailsQuery.Data> {
-        return webService.getApolloClient().query(LaunchDetailsQuery(launchId)).await()
+        return webService.getApolloclient().query(LaunchDetailsQuery(launchId)).await()
     }
 
-    override suspend fun getCacheKeyResolver(context: Context) {
-        webService.getCacheKeyResolver(context)
-    }
 
 }

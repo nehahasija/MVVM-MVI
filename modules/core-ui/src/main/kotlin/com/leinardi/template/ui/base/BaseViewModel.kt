@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Roberto Leinardi.
+ * Copyright 2021 Neha Hasija.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,6 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-const val LAUNCH_LISTEN_FOR_EFFECTS = "launch-listen-to-effects"
 
 abstract class BaseViewModel<UiEvent : ViewEvent, UiState : ViewState, UiEffect : ViewEffect> : ViewModel() {
     // State (current state of views)

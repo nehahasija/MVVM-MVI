@@ -1,4 +1,4 @@
-/build
+gradle /build
 # Built application files
 *.aab
 *.apk

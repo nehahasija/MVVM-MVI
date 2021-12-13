@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Roberto Leinardi.
+ * Copyright 2021 Neha Hasija.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ class GetDebugInfoInteractor @Inject constructor(
         }
         val versionName = packageInfo?.versionName ?: "Undefined"
         val versionCode: Long =
-            (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) packageInfo?.longVersionCode else packageInfo?.versionCode?.toLong()) ?: 0
+            (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) packageInfo?.longVersionCode else packageInfo?.longVersionCode?.toLong()) ?: 0
         val displayMetrics = context.resources.displayMetrics
 
         return DebugInfo(

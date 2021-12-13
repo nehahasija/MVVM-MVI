@@ -37,6 +37,7 @@ import com.leinardi.template.rocketserver.LaunchListQuery
 import com.leinardi.template.ui.base.ViewState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import timber.log.Timber
 
 
 @HiltViewModel
@@ -57,7 +58,6 @@ class RocketLaunchViewModel @Inject constructor(
     }
 
     init {
-        getApolloCacheResolver()
         queryLaunchesList()
     }
 
@@ -65,10 +65,6 @@ class RocketLaunchViewModel @Inject constructor(
         viewModelScope.launch {
             templateNavigator.navigate(RocketLaunchDetailDestination.createRoute(id))
         }
-    }
-
-    fun getApolloCacheResolver() = viewModelScope.launch {
-        repository.getCacheKeyResolver(app)
     }
 
     fun queryLaunchesList() = viewModelScope.launch {
@@ -81,7 +77,7 @@ class RocketLaunchViewModel @Inject constructor(
             }
 
         } catch (e: ApolloException) {
-            Log.d("ApolloException", e.printStackTrace().toString())
+            Timber.d("ApolloException", e.printStackTrace().toString())
             updateState { viewState.value.copy(isLoading = false) }
             sendEffect { Effect.ShowSnackbar(app.getString(R.string.i18n_network_issue)) }
 

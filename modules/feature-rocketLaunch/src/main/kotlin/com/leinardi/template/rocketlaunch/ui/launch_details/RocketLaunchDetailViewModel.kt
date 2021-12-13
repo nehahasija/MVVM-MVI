@@ -38,6 +38,7 @@ import com.leinardi.template.rocketserver.LaunchDetailsQuery
 import com.leinardi.template.rocketserver.LaunchListQuery
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 
@@ -46,7 +47,7 @@ class RocketLaunchDetailViewModel @Inject constructor(
     private val templateNavigator: TemplateNavigator,
     private val repository: LaunchRepository,
     private val app: Application,
-    private val savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle
 ) : BaseViewModel<Event, State, Effect>() {
     private lateinit var clickedLaunchItem: LaunchDetailsQuery.Launch
 
@@ -55,7 +56,7 @@ class RocketLaunchDetailViewModel @Inject constructor(
 
     override fun handleEvent(event: Event) {
         when (event) {
-            is Event.OnItemClicked -> sendId(event.id)
+            is Event.OnItemClicked -> sendId()
             is Event.OnUpButtonClicked -> templateNavigator.navigateUp()
 
         }
@@ -65,7 +66,7 @@ class RocketLaunchDetailViewModel @Inject constructor(
         queryLaunchesList(savedStateHandle[RocketLaunchDetailDestination.STRING_PARAM] ?: "")
     }
 
-    private fun sendId(id: String) {
+    private fun sendId() {
         viewModelScope.launch {
 
             sendEffect { Effect.sendData(clickedLaunchItem) }
@@ -84,7 +85,7 @@ class RocketLaunchDetailViewModel @Inject constructor(
 
 
         } catch (e: ApolloException) {
-            Log.d("ApolloException", e.printStackTrace().toString())
+            Timber.d("ApolloException", e.printStackTrace().toString())
             updateState { viewState.value.copy(isLoading = false) }
             sendEffect { Effect.ShowSnackbar(app.getString(R.string.i18n_network_issue)) }
 
